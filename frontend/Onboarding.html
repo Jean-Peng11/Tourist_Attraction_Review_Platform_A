@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet"  href="css/styles.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" />
+ 	
+</head>
+<body>
+  	<div class="content-container">
+  		<b class="title">Welcome to App</b>
+
+  		<img class="illustrationtravels-icon" src="Images/Onboarding.png">
+
+		<div class="your-guide-to">Your guide to better trips.<br>Know before you go.</div>
+
+		<div class="componentsbutton" id="buttonContainer">
+			<div class="sign-in">Get Started</div>
+		</div>
+
+		<div class="group-parent">
+			<div class="line-parent">
+				<div class="group-child">
+				</div>
+				<div class="ellipse-parent">
+					<div class="group-item">
+					</div>
+					<div class="share">Share </div>
+				</div>
+			</div>
+		</div>
+  		
+		<div class="icon-container">
+			<img class="group-icon" src="Images/fb.png">
+			<img class="group-9-copy" src="Images/tw.png">
+			<img class="group-9-copy-2" src="Images/in.png">
+			<img class="group-9-copy-3" src="Images/ins.png">
+		</div>
+  	</div>
+
+</body>
+</html>
+
+
+<script src="js/home.js"></script>
+<script>
+document.getElementById("buttonContainer").addEventListener("click", () => {
+    window.location.href = "signup.html";
+});
+</script>

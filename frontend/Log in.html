@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+      body {
+        align-items: flex-start;
+        padding-top: 65px;
+      }
+    </style>
+</head>
+<body>
+  	<div class="signup-container">
+  		<div class="signup-card">
+  			<h1 class="signup-title">
+  				<span class="tourist-text">Tourist<br>Log In</span>
+  			</h1>
+
+  			<form class="signup-form">
+  				<div class="form-group">
+  					<label class="form-label">Email Address</label>
+  					<div class="form-input-wrapper">
+  						<span class="form-icon"><i class="bi bi-envelope"></i></span>
+  						<input type="email" class="form-input" placeholder="qut@gmail.com" required>
+  					</div>
+  				</div>
+  	
+  				<div class="form-group">
+  					<label class="form-label">Password</label>
+  					<div class="form-input-wrapper">
+  						<span class="form-icon"><i class="bi bi-lock"></i></span>
+  						<input type="password" class="form-input password-input" placeholder="••••••••" required>
+  						<span class="toggle-password" title="Show/Hide"><i class="bi bi-eye"></i></span>
+  					</div>
+  				</div>
+
+  				<button type="submit" class="signup-button">Log In</button>
+
+  				<div class="login-link">
+  					Don't have an account? <a href="./Sign up.html">Sign up</a>
+  				</div>
+
+                <div class="group-parent">
+		        	<div class="line-parent">
+			        	<div class="group-child">
+				        </div>
+			    	    <div class="ellipse-parent">
+                            <div class="group-item">
+                            </div>
+				    	    <div class="share">Share </div>
+				        </div>
+			        </div>
+		        </div>
+  		
+                <div class="icon-container">
+                    <img class="group-icon" src="Images/fb.png">
+                    <img class="group-9-copy" src="Images/tw.png">
+                    <img class="group-9-copy-2" src="Images/in.png">
+                    <img class="group-9-copy-3" src="Images/ins.png">
+                </div>
+            </form>
+  		</div>
+  	</div>
+
+  	<script>
+  		document.querySelectorAll('.toggle-password').forEach(icon => {
+  			icon.addEventListener('click', function() {
+  				const input = this.previousElementSibling;
+  				if (input.type === 'password') {
+  					input.type = 'text';
+  					this.innerHTML = '<i class="bi bi-eye-slash"></i>';
+  				} else {
+  					input.type = 'password';
+  					this.innerHTML = '<i class="bi bi-eye"></i>';
+  				}
+  			});
+  		});
+  	</script>
+</body>
+</html>
+
+<script>
+document.querySelector(".signup-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.querySelector("input[type='email']").value;
+    const password = document.querySelector("input[type='password']").value;
+
+    const res = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+        alert("Login success");
+        window.location.href = "Home.html"; 
+    } else {
+        alert(data.message);
+        window.location.href = "LoginError.html"; 
+    }
+});
+</script>

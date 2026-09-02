@@ -1,0 +1,595 @@
+body {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	min-height: 100vh;
+  	margin: 0;
+  	padding: 20px;
+}
+
+.content-container {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	gap: 20px;
+  	max-width: 600px;
+  	width: 100%;
+}
+
+.title {
+  	width: 328px;
+  	height: 91px;
+  	position: relative;
+  	font-size: 36px;
+  	letter-spacing: 0.2px;
+  	line-height: 36px;
+  	display: flex;
+  	font-family: Poppins;
+  	color: #000;
+  	text-align: center;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.illustrationtravels-icon {
+      width: 420px;
+      height: 420px;
+      object-fit: contain;
+}
+
+.your-guide-to {
+  	width: 259px;
+  	height: 100px;
+  	position: relative;
+  	font-size: 18px;
+  	letter-spacing: 0.2px;
+  	line-height: 18px;
+  	font-weight: 600;
+  	font-family: Poppins;
+  	color: #000;
+  	text-align: center;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.componentsbutton {
+  	width: 100%;
+  	height: 52px;
+  	position: relative;
+  	border-radius: 12px;
+  	background-color: #0dc1a9;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 12px 20px;
+  	box-sizing: border-box;
+  	cursor: pointer;
+  	text-align: center;
+  	font-size: 20px;
+  	color: #fff;
+  	font-family: Poppins;
+}
+.sign-in {
+  	position: relative;
+  	letter-spacing: -0.01em;
+  	line-height: 22px;
+  	font-weight: 600;
+}
+
+.group-parent {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	text-align: left;
+  	font-size: 13px;
+  	color: #717680;
+  	font-family: Poppins;
+}
+.line-parent {
+  	width: 255px;
+  	height: 28px;
+  	position: relative;
+}
+.group-child {
+  	position: absolute;
+  	top: 13.5px;
+  	left: -0.5px;
+  	border-top: 1px solid #e9eaeb;
+  	box-sizing: border-box;
+  	width: 256px;
+  	height: 1px;
+}
+.ellipse-parent {
+  	position: absolute;
+  	top: 0px;
+  	left: 110.78px;
+  	width: 39px;
+  	height: 28px;
+}
+.group-item {
+  	position: absolute;
+  	top: 0px;
+  	left: 6.22px;
+  	border-radius: 50%;
+  	background-color: #fff;
+  	width: 28px;
+  	height: 28px;
+}
+.share {
+  	position: absolute;
+  	top: 7px;
+  	left: 0px;
+  	line-height: 14px;
+  	font-weight: 500;
+}
+
+.icon-container {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	gap: 15px;
+  	width: 100%;
+}
+
+.group-icon, .group-9-copy, .group-9-copy-2, .group-9-copy-3 {
+  	width: 60px;
+  	height: 60px;
+  	object-fit: contain;
+  	cursor: pointer;
+}
+
+
+
+.tourist-text, .signup-text {
+  	width: 328px;
+  	height: 91px;
+  	position: relative;
+  	font-size: 36px;
+  	letter-spacing: 0.2px;
+  	display: flex;
+  	font-family: Poppins;
+  	color: #000;
+}
+
+.signup-container {
+  	width: 100%;
+  	max-width: 360px;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.signup-card {
+  	width: 100%;
+  	background-color: transparent;
+  	border-radius: 0;
+  	padding: 0 20px;
+  	box-shadow: none;
+}
+
+.signup-title {
+  	text-align: center;
+  	margin-bottom: 28px;
+  	font-size: 40px;
+  	font-weight: 700;
+  	color: #000;
+  	display: flex;
+  	flex-direction: column;
+  	gap: 0;
+  	line-height: 1.1;
+  	letter-spacing: -0.5px;
+}
+
+.signup-form {
+  	display: flex;
+  	flex-direction: column;
+  	gap: 24px;
+}
+
+.form-group {
+  	display: flex;
+  	flex-direction: column;
+  	gap: 8px;
+}
+
+.form-label {
+  	font-size: 13px;
+  	font-weight: 500;
+  	color: #b0b0b0;
+  	text-transform: capitalize;
+  	font-family: Poppins, sans-serif;
+  	letter-spacing: 0.3px;
+}
+
+.form-input-wrapper {
+  	display: flex;
+  	align-items: center;
+  	gap: 12px;
+  	padding: 10px 0;
+  	border-bottom: 1px solid #e8e8e8;
+  	transition: border-color 0.3s ease;
+  	position: relative;
+}
+
+.form-input-wrapper:focus-within {
+  	border-bottom-color: #0dc1a9;
+}
+
+.form-icon {
+  	font-size: 18px;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 20px;
+  	height: 20px;
+}
+
+.form-input {
+  	flex: 1;
+  	border: none;
+  	outline: none;
+  	padding: 0;
+  	font-size: 15px;
+  	font-family: Poppins, sans-serif;
+  	color: #1e1e2d;
+  	background: transparent;
+}
+
+.form-input::placeholder {
+  	color: #989898;
+}
+
+.toggle-password {
+  	font-size: 16px;
+  	flex-shrink: 0;
+  	cursor: pointer;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 20px;
+  	height: 20px;
+  	transition: opacity 0.3s ease;
+}
+
+.toggle-password:hover {
+  	opacity: 0.7;
+}
+
+.signup-button {
+  	width: 100%;
+  	padding: 14px 20px;
+  	margin-top: 20px;
+  	background-color: #0dc1a9;
+  	color: #fff;
+  	border: none;
+  	border-radius: 10px;
+  	font-size: 16px;
+  	font-weight: 600;
+  	font-family: Poppins, sans-serif;
+  	cursor: pointer;
+  	transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+  	background-color: #0ba896;
+}
+
+.signup-button:active {
+  	background-color: #099982;
+}
+
+.login-link {
+  	text-align: center;
+  	font-size: 14px;
+  	color: #989898;
+  	margin-top: 18px;
+  	font-family: Poppins, sans-serif;
+}
+
+.login-link a {
+  	color: #0066ff;
+  	text-decoration: none;
+  	font-weight: 600;
+  	transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  	color: #0052cc;
+  	text-decoration: underline;
+}
+
+/* -------------------------
+   Home Page
+------------------------- */
+.page-home {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-home .title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-home .search-bar {
+  width: 100%;
+  background: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.page-home .form-input {
+  font-size: 16px;
+}
+
+.page-home .filter-bar {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.page-home .filter-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #FFF;
+  border: 1px solid #DDD;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.page-home .attraction-card {
+  width: 100%;
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.page-home .attraction-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.page-home .attraction-info {
+  padding: 16px;
+}
+
+.page-home .attraction-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.page-home .attraction-location {
+  font-size: 14px;
+  color: #777;
+}
+
+.page-home .attraction-reviews {
+  font-size: 14px;
+  color: #0dc1a9;
+  margin-top: 6px;
+}
+
+
+/* -------------------------
+   Attraction Detail Page
+------------------------- */
+.page-attraction {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-attraction .title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.page-attraction .attraction-image-large {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.page-attraction .attraction-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.page-attraction .review-card {
+  background: #FFF;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.page-attraction .review-input {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  padding: 12px;
+  resize: none;
+}
+
+.page-attraction .review-submit-button {
+  width: 100%;
+  background: #0dc1a9;
+  color: #FFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page-attraction .recommend-card {
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+
+/* -------------------------
+   Profile Page
+------------------------- */
+.page-profile {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-profile .profile-info {
+  background: #FFF;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.page-profile .profile-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.page-profile .profile-email {
+  font-size: 15px;
+  color: #777;
+  margin-top: 6px;
+}
+
+.page-profile .review-item {
+  background: #FFF;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.page-profile .profile-edit-button {
+  width: 100%;
+  background: #0dc1a9;
+  color: #FFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* -------------------------
+   Admin Dashboard
+------------------------- */
+.page-admin {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-admin .admin-review-card {
+  background: #FFF;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.page-admin .admin-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.page-admin .admin-accept {
+  background: #0dc1a9;
+  color: #FFF;
+  border-radius: 12px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.page-admin .admin-reject {
+  background: #E53935;
+  color: #FFF;
+  border-radius: 12px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* -------------------------
+   Manage Attraction Page
+------------------------- */
+.page-manage {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-manage img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.page-manage .manage-item {
+  background: #FFF;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.page-manage .manage-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.page-manage .manage-button {
+  width: 100%;
+  background: #0dc1a9;
+  color: #FFF;
+  border-radius: 12px;
+  padding: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* -------------------------
+   Login Error Page
+------------------------- */
+.page-error .error-message {
+  color: #E53935;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
