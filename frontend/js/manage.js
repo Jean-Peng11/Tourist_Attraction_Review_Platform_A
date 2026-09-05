@@ -1,86 +1,113 @@
-// manage.js
-
-let attractions = [
-  { name: "City Botanic Gardens", desc: "Located in Brisbane City" }
-];
+let attractions = [];
+let pendingDeleteIndex = null;
+let editingIndex = null;
 
 const list = document.getElementById("manageList");
 
-// 顯示景點
 function renderList() {
   list.innerHTML = "";
-  attractions.forEach((a, index) => {
+  attractions.forEach((attraction, index) => {
     const item = document.createElement("div");
     item.className = "manage-item";
     item.innerHTML = `
-      <b>${a.name}</b>
-      <p>${a.desc}</p>
+      <b>${attraction.name}</b>
+      <p>${attraction.description}</p>
+      <img src="Images/${attraction.image || "City Botanical Gardens Brisbane.png"}" alt="${attraction.name}">
       <div class="manage-actions">
-        <button class="admin-reject" onclick="deleteAttraction(${index})">Delete</button>
+        <button type="button" onclick="editAttraction(${index})">Edit</button>
+        <button type="button" onclick="deleteAttraction(${index})">Delete</button>
       </div>
     `;
     list.appendChild(item);
   });
 }
 
-renderList();
-
-// 新增景點
 function saveAttraction() {
-  const name = document.getElementById("manageLocation").value.trim();
-  const desc = document.getElementById("manageDesc").value.trim();
+  const nameInput = document.getElementById("manageLocation");
+  const descriptionInput = document.getElementById("manageDesc");
+  const name = nameInput.value.trim();
+  const description = descriptionInput.value.trim();
 
-  if (!name || !desc) return;
+  if (!name || !description) {
+    alert("Please enter an attraction name and description.");
+    return;
+  }
 
-  attractions.push({ name, desc });
-  renderList();
+  const endpoint = editingIndex === null
+    ? "/attractions/admin/add"
+    : `/attractions/${attractions[editingIndex]._id}`;
+  const method = editingIndex === null ? "POST" : "PUT";
 
-  document.getElementById("manageLocation").value = "";
-  document.getElementById("manageDesc").value = "";
-
-  alert("Attraction added!");
+  apiRequest(method, endpoint, {
+    name,
+    location: "Queensland",
+    description
+  }).then(response => {
+    const expectedMessage = editingIndex === null ? "Attraction saved" : "Attraction updated";
+    if (response.message !== expectedMessage) {
+      throw new Error(response.message || "Failed to save attraction.");
+    }
+    editingIndex = null;
+    nameInput.value = "";
+    descriptionInput.value = "";
+    document.getElementById("attractionForm").hidden = true;
+    loadAttractions();
+  }).catch(error => alert(`Unable to save attraction: ${error.message}`));
 }
 
-// 刪除景點
-function deleteAttraction(i) {
-  attractions.splice(i, 1);
-  renderList();
+function deleteAttraction(index) {
+  pendingDeleteIndex = index;
+  document.getElementById("deleteConfirmation").hidden = false;
 }
-// manage.js
+
+async function confirmDelete() {
+  if (pendingDeleteIndex === null) return;
+
+  const attraction = attractions[pendingDeleteIndex];
+  if (!attraction?._id) {
+    alert("This attraction does not have a database ID. Please reload the page.");
+    return;
+  }
+
+  try {
+    const response = await apiRequest("DELETE", `/attractions/${attraction._id}`);
+    if (response.message !== "Attraction deleted") {
+      throw new Error(response.message || "Failed to delete attraction.");
+    }
+    pendingDeleteIndex = null;
+    document.getElementById("deleteConfirmation").hidden = true;
+    loadAttractions();
+  } catch (error) {
+    alert(`Unable to delete attraction: ${error.message}`);
+  }
+}
+
+function cancelDelete() {
+  pendingDeleteIndex = null;
+  document.getElementById("deleteConfirmation").hidden = true;
+}
+
+function toggleAttractionForm() {
+  const form = document.getElementById("attractionForm");
+  form.hidden = !form.hidden;
+}
+
+function editAttraction(index) {
+  const attraction = attractions[index];
+  editingIndex = index;
+  document.getElementById("manageLocation").value = attraction.name;
+  document.getElementById("manageDesc").value = attraction.description;
+  document.getElementById("attractionForm").hidden = false;
+}
 
 async function loadAttractions() {
-  const res = await apiRequest("GET", "/attractions");
-
-  const list = document.getElementById("manageList");
-  list.innerHTML = "";
-
-  res.forEach(a => {
-    const item = document.createElement("div");
-    item.className = "manage-item";
-
-    item.innerHTML = `
-      <b>${a.name}</b>
-      <p>${a.description}</p>
-    `;
-
-    list.appendChild(item);
-  });
+  try {
+    const response = await apiRequest("GET", "/attractions");
+    attractions = Array.isArray(response) ? response : [];
+    renderList();
+  } catch (error) {
+    alert(`Unable to load attractions: ${error.message}`);
+  }
 }
 
 loadAttractions();
-
-// 新增景點
-async function saveAttraction() {
-  const name = document.getElementById("manageLocation").value.trim();
-  const desc = document.getElementById("manageDesc").value.trim();
-
-  if (!name || !desc) return;
-
-  await apiRequest("POST", "/admin/attractions", {
-    name,
-    description: desc
-  });
-
-  alert("Attraction added!");
-  loadAttractions();
-}

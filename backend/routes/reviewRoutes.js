@@ -31,8 +31,12 @@ router.post("/:id/verify", async (req, res) => {
     const review = await Review.findById(id);
     if (!review) return res.status(404).json({ message: "Review not found" });
 
-    review.verified = approve;
-    await review.save();
+    if (approve) {
+        review.verified = true;
+        await review.save();
+    } else {
+        await Review.findByIdAndDelete(id);
+    }
 
     res.json({ message: "Review verification updated" });
 });

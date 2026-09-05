@@ -10,35 +10,34 @@
 <body class="page-profile">
   <main class="content-container">
 
+    <button class="profile-back-button" type="button" onclick="history.back()" aria-label="Go back">&larr;</button>
+
     <header class="page-header">
       <h1 class="title">Profile</h1>
     </header>
 
     <section class="page-section">
 
+      <div class="profile-avatar" aria-hidden="true">
+        <span class="avatar-head"></span>
+        <span class="avatar-body"></span>
+      </div>
+
       <div class="profile-info">
         <div class="profile-name">Lucia</div>
         <div class="profile-email">lucia@gmail.com</div>
       </div>
 
-      <button class="profile-edit-button">Edit Profile</button>
+      <input id="editName" class="form-input profile-edit-input" type="text" placeholder="New name" hidden>
+      <button class="profile-edit-button" type="button" onclick="updateProfile()">Edit Profile</button>
 
       <h2 class="signup-title">My submitted Reviews</h2>
 
-      <div class="review-item">
-        <b>Botanic Garden</b>
-        <p>This place you must visit in Queensland</p>
-        <div class="review-status">Under Verification</div>
-      </div>
-
-      <div class="review-item">
-        <b>QUT</b>
-        <p>This place you must visit in Queensland</p>
-        <div class="review-status">Under Verification</div>
-      </div>
+      <div id="myReviews"></div>
 
     </section>
 
   </main>
+  <script src="js/profile.js"></script>
 </body>
 </html>

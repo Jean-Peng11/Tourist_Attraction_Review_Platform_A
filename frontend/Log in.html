@@ -81,30 +81,7 @@
   			});
   		});
   	</script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
-
-<script>
-document.querySelector(".signup-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const email = document.querySelector("input[type='email']").value;
-    const password = document.querySelector("input[type='password']").value;
-
-    const res = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-        alert("Login success");
-        window.location.href = "Home.html"; 
-    } else {
-        alert(data.message);
-        window.location.href = "LoginError.html"; 
-    }
-});
-</script>

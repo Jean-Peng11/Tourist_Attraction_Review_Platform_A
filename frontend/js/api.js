@@ -1,13 +1,13 @@
-// api.js
 
-const API_BASE = "http://localhost:3000/api";   // 若部署 EC2 → 換成你的 EC2 URL
 
-// 取得 token
+const API_BASE = "http://localhost:3000/api";   
+
+
 function getToken() {
   return localStorage.getItem("token");
 }
 
-// 包裝 fetch（自動附上 token）
+
 async function apiRequest(method, endpoint, data = null) {
   const options = {
     method,

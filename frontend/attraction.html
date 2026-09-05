@@ -2,35 +2,50 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <title>Attraction Details</title>
 </head>
 
-<body class="page-manage">
-  <div class="content-container">
+<body class="page-attraction">
+  <main class="content-container">
 
-    <b class="title">Manage Attraction</b>
+    <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">&larr;</button>
 
-    <img src="Images/City Botanical Gardens Brisbane.png">
+    <img id="attractionImage" src="Images/South Bank Parklands.png" class="attraction-image-large" alt="South Bank Parklands">
 
-    <div class="form-group">
-      <label class="form-label">Attraction Name</label>
-      <input type="text" class="form-input">
-    </div>
+    <h1 class="attraction-detail-title">South Bank Parklands</h1>
+    <p class="attraction-detail-copy"><strong>Address:</strong> Clem Jones Promenade, South Brisbane QLD</p>
+    <p class="attraction-detail-copy"><strong>Description:</strong> The South Bank Parklands are located on the southern bank of the Brisbane River, at South Bank, directly opposite the City.</p>
 
-    <div class="form-group">
-      <label class="form-label">Description</label>
-      <textarea class="form-input"></textarea>
-    </div>
+    <section class="review-layout">
+      <div class="reviews-panel">
+        <h2>Reviews</h2>
+        <div id="reviewList"></div>
+      </div>
 
-    <button class="manage-button">Submit</button>
+      <div class="write-review-panel">
+        <h2>Write Your Review</h2>
+        <div class="review-form-box">
+          <label for="reviewInput">Your Review:<br>(More than 5 words)</label>
+          <textarea id="reviewInput" class="review-input" placeholder="Write your review..."></textarea>
+          <button class="review-submit-button" type="button" onclick="submitReview()">Submit</button>
+        </div>
+      </div>
+    </section>
 
-    <h3 class="signup-title">Existing Attractions</h3>
+    <section class="recommendation-section">
+      <h2>Recommendation</h2>
+      <div class="recommendation-list">
+        <img src="Images/City Botanical Gardens Brisbane.png" alt="City Botanic Gardens" onclick="goToAttraction('City Botanic Gardens')">
+        <img src="Images/Story Bridge.png" alt="Story Bridge" onclick="goToAttraction('Story Bridge')">
+        <img src="Images/Lone Pine Koala Sanctuary.png" alt="Lone Pine Koala Sanctuary" onclick="goToAttraction('Lone Pine Koala Sanctuary')">
+      </div>
+    </section>
 
-    <div class="manage-item">
-      <b>City Botanic Gardens</b>
-      <p>Located in Brisbane City</p>
-    </div>
-
-  </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/attraction.js"></script>
 </body>
 </html>
