@@ -1,33 +1,35 @@
-// Login
-document.querySelector(".signup-form")?.addEventListener("submit", async e => {
-    e.preventDefault();
+const form = document.querySelector(".signup-form");
+const isSignup = document.title.toLowerCase().includes("sign up");
 
-    const email = document.querySelector("input[type='email']").value;
-    const password = document.querySelector("input[type='password']").value;
+form?.addEventListener("submit", async event => {
+    event.preventDefault();
 
-    const res = await post("/login", { email, password });
+    const email = form.querySelector("input[type='email']").value.trim();
+    const passwordInputs = form.querySelectorAll("input[type='password']");
+    const password = passwordInputs[0].value;
 
-    if (res.user) {
-        localStorage.setItem("user", JSON.stringify(res.user));
-        window.location.href = "home.html";
-    } else {
-        window.location.href = "login-error.html";
+    if (isSignup && password !== passwordInputs[1].value) {
+        alert("Passwords do not match.");
+        return;
     }
-});
 
-// Signup
-document.querySelector(".signup-form")?.addEventListener("submit", async e => {
-    e.preventDefault();
+    const data = { email, password };
+    if (isSignup) data.name = form.querySelector("input[type='text']").value.trim();
 
-    const email = document.querySelector("input[type='email']").value;
-    const name = document.querySelector("input[type='text']").value;
-    const password = document.querySelector("input[type='password']").value;
+    try {
+        const response = await apiRequest("POST", isSignup ? "/auth/signup" : "/auth/login", data);
 
-    const res = await post("/signup", { email, name, password });
+        if (isSignup) {
+            alert(response.message || "Sign up success");
+            window.location.href = "Log in.html";
+            return;
+        }
 
-    if (res.message === "Sign up success") {
-        window.location.href = "login.html";
-    } else {
-        alert(res.message);
+        if (!response.user) throw new Error(response.message || "Invalid email or password");
+        localStorage.setItem("user", JSON.stringify(response.user));
+        window.location.href = "home.html";
+    } catch (error) {
+        alert(error.message);
+        if (!isSignup) window.location.href = "login-error.html";
     }
 });

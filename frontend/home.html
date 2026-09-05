@@ -16,6 +16,7 @@
 
     <section class="page-section">
       <div class="search-bar">
+        <span class="search-icon" aria-hidden="true"></span>
         <input type="text" class="form-input" placeholder="Search attractions">
       </div>
 
@@ -27,7 +28,8 @@
         <span class="filter-item">Recreational</span>
       </div>
 
-      <div class="attraction-card">
+      <div id="attractionList">
+      <div class="attraction-card" data-category="Nature">
         <img src="Images/City Botanical Gardens Brisbane.png" class="attraction-image">
         <div class="attraction-info">
           <div class="attraction-title">City Botanic Gardens</div>
@@ -36,7 +38,7 @@
         </div>
       </div>
 
-      <div class="attraction-card">
+      <div class="attraction-card" data-category="Recreational">
         <img src="Images/South Bank Parklands.png" class="attraction-image">
         <div class="attraction-info">
           <div class="attraction-title">South Bank Parklands</div>
@@ -44,8 +46,11 @@
           <div class="attraction-reviews">3000+ Reviews</div>
         </div>
       </div>
+      </div>
     </section>
 
   </main>
+  <script src="js/api.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

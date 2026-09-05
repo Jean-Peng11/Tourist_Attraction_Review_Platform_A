@@ -307,82 +307,146 @@ body {
 ------------------------- */
 .page-home {
   width: 100%;
-  max-width: 600px;
+	max-width: 900px;
   margin: 0 auto;
+	padding: 64px 24px 40px;
+	box-sizing: border-box;
+}
+
+.page-home .content-container {
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	gap: 0;
 }
 
 .page-home .title {
-  font-size: 32px;
+	font-size: 28px;
   font-weight: 700;
   color: #000;
   text-align: center;
-  margin-bottom: 20px;
+	margin: 0 0 12px;
 }
 
 .page-home .search-bar {
-  width: 100%;
-  background: #FFF;
-  border: 1px solid #DDD;
-  border-radius: 12px;
-  padding: 12px 16px;
+	width: min(100%, 560px);
+	height: 38px;
+	margin: 0 auto 14px;
+	background: #d9f5f2;
+	border: 1px solid #b4deda;
+	border-radius: 22px;
+	padding: 0 16px;
   display: flex;
   align-items: center;
+	box-sizing: border-box;
+}
+
+.page-home .search-icon {
+	width: 14px;
+	height: 14px;
+	border: 1.5px solid #000;
+	border-radius: 50%;
+	margin-right: 20px;
+	position: relative;
+	flex: 0 0 auto;
+}
+
+.page-home .search-icon::after {
+	content: "";
+	position: absolute;
+	width: 7px;
+	height: 1.5px;
+	background: #000;
+	right: -5px;
+	bottom: -3px;
+	transform: rotate(45deg);
 }
 
 .page-home .form-input {
-  font-size: 16px;
+	font-size: 14px;
+	color: #555;
 }
 
 .page-home .filter-bar {
   display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  margin-bottom: 20px;
+	justify-content: center;
+	gap: 18px;
+	margin-bottom: 20px;
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+.page-home .filter-bar::-webkit-scrollbar {
+	display: none;
 }
 
 .page-home .filter-item {
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: #FFF;
-  border: 1px solid #DDD;
-  font-size: 14px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: #000;
+	font-size: 13px;
+	font-weight: 600;
   white-space: nowrap;
+	cursor: pointer;
+}
+
+.page-home .filter-item.active {
+	color: #0ba896;
 }
 
 .page-home .attraction-card {
-  width: 100%;
-  background: #FFF;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  overflow: hidden;
+	width: min(100%, 560px);
+	margin: 0 auto 16px;
   cursor: pointer;
+	text-align: center;
 }
 
 .page-home .attraction-image {
   width: 100%;
-  height: 220px;
+	height: 280px;
   object-fit: cover;
 }
 
 .page-home .attraction-info {
-  padding: 16px;
+	padding: 6px 0 0;
 }
 
 .page-home .attraction-title {
-  font-size: 20px;
-  font-weight: 600;
+	font-size: 16px;
+	font-weight: 700;
 }
 
 .page-home .attraction-location {
-  font-size: 14px;
-  color: #777;
+	font-size: 13px;
+	color: #000;
 }
 
 .page-home .attraction-reviews {
-  font-size: 14px;
-  color: #0dc1a9;
-  margin-top: 6px;
+	font-size: 13px;
+	color: #000;
+	margin-top: 3px;
+}
+
+.page-home .no-results-message {
+	color: #777;
+	font-size: 14px;
+	text-align: center;
+}
+
+@media (max-width: 600px) {
+	.page-home {
+		padding-top: 64px;
+	}
+
+	.page-home .attraction-image {
+		height: auto;
+		aspect-ratio: 1.46;
+	}
+
+	.page-home .filter-bar {
+		justify-content: flex-start;
+	}
 }
 
 
@@ -391,65 +455,159 @@ body {
 ------------------------- */
 .page-attraction {
   width: 100%;
-  max-width: 600px;
+	max-width: 900px;
   margin: 0 auto;
+	padding: 40px 24px;
+	box-sizing: border-box;
 }
 
-.page-attraction .title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 16px;
+.page-attraction .content-container {
+	width: min(100%, 720px);
+	margin: 0 auto;
+	gap: 0;
+	text-align: left;
+}
+
+.page-attraction .back-button {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 22px;
+	border: 0;
+	background: transparent;
+	color: #17232b;
+	font-size: 28px;
+	line-height: 1;
+	text-align: left;
+	cursor: pointer;
 }
 
 .page-attraction .attraction-image-large {
   width: 100%;
-  height: 300px;
+	height: 300px;
   object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 20px;
+	border-radius: 0;
+	margin-bottom: 8px;
 }
 
-.page-attraction .attraction-description {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
+.page-attraction .attraction-detail-title {
+	width: 100%;
+	margin: 0 0 3px;
+	font-size: 16px;
+	line-height: 1.25;
+	text-align: left;
+}
+
+.page-attraction .attraction-detail-copy {
+	width: 100%;
+	margin: 2px 0;
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.page-attraction .review-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-top: 32px;
+}
+
+.page-attraction .review-layout h2,
+.page-attraction .recommendation-section h2 {
+	margin: 0 0 5px;
+	font-size: 15px;
+	line-height: 1.25;
+}
+
+.page-attraction .reviews-panel {
+	text-align: left;
 }
 
 .page-attraction .review-card {
-  background: #FFF;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+	padding: 0;
+	margin-bottom: 8px;
+	font-size: 12px;
+	line-height: 1.35;
+	text-align: left;
+}
+
+.page-attraction .review-user {
+	display: block;
+}
+
+.page-attraction .review-text {
+	display: block;
+}
+
+.page-attraction .review-form-box {
+	min-height: 101px;
+	padding: 7px 8px;
+	box-sizing: border-box;
+	background: #d9f5f2;
+	text-align: left;
+	font-size: 11px;
+	line-height: 1.35;
 }
 
 .page-attraction .review-input {
   width: 100%;
-  height: 120px;
-  border-radius: 12px;
-  padding: 12px;
+	height: 38px;
+	margin: 5px 0 4px;
+	padding: 4px;
+	border: 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	background: #fff;
   resize: none;
+	font: 11px Poppins, Arial, sans-serif;
 }
 
 .page-attraction .review-submit-button {
-  width: 100%;
   background: #0dc1a9;
   color: #FFF;
   border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: 600;
+	border-radius: 9px;
+	padding: 5px 18px;
+	font: 600 11px Poppins, Arial, sans-serif;
   cursor: pointer;
+	display: block;
+	margin: 0 auto;
 }
 
-.page-attraction .recommend-card {
-  background: #FFF;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  overflow: hidden;
+.page-attraction .recommendation-section {
+	margin-top: 28px;
+}
+
+.page-attraction .recommendation-list {
+	display: flex;
+	gap: 20px;
+}
+
+.page-attraction .recommendation-list img {
+	width: 30%;
+	height: 72px;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+	.page-attraction {
+		padding: 56px 26px 40px;
+	}
+
+	.page-attraction .attraction-image-large {
+		height: auto;
+		aspect-ratio: 1.46;
+	}
+
+	.page-attraction .review-layout {
+		gap: 10px;
+	}
+
+	.page-attraction .recommendation-list {
+		gap: 16px;
+	}
 }
 
 
@@ -458,47 +616,170 @@ body {
 ------------------------- */
 .page-profile {
   width: 100%;
-  max-width: 600px;
+	max-width: 900px;
   margin: 0 auto;
+	padding: 40px 24px;
+	box-sizing: border-box;
+}
+
+.page-profile .content-container {
+	width: min(100%, 700px);
+	margin: 0 auto;
+	gap: 0;
+}
+
+.page-profile .profile-back-button {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 2px;
+	border: 0;
+	background: transparent;
+	color: #17232b;
+	font-size: 28px;
+	line-height: 1;
+	text-align: left;
+	cursor: pointer;
+}
+
+.page-profile .page-header {
+	margin-bottom: 16px;
+}
+
+.page-profile .title {
+	width: auto;
+	height: auto;
+	margin: 0;
+	font-size: 28px;
+	line-height: 1.2;
+	font-weight: 700;
+	text-align: center;
+}
+
+.page-profile .page-section {
+	text-align: center;
+}
+
+.page-profile .profile-avatar {
+	position: relative;
+	width: 135px;
+	height: 135px;
+	margin: 0 auto 18px;
+	border-radius: 50%;
+	background: #0dc1a9;
+}
+
+.page-profile .avatar-head {
+	position: absolute;
+	top: 22px;
+	left: 47px;
+	width: 43px;
+	height: 43px;
+	border-radius: 50%;
+	background: #68d7cd;
+}
+
+.page-profile .avatar-body {
+	position: absolute;
+	bottom: 17px;
+	left: 37px;
+	width: 63px;
+	height: 42px;
+	border-radius: 50% 50% 45% 45%;
+	background: #9aeee8;
 }
 
 .page-profile .profile-info {
-  background: #FFF;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+	padding: 0;
+	margin-bottom: 13px;
 }
 
 .page-profile .profile-name {
-  font-size: 22px;
+	font-size: 18px;
   font-weight: 700;
 }
 
 .page-profile .profile-email {
-  font-size: 15px;
-  color: #777;
-  margin-top: 6px;
+	font-size: 14px;
+	color: #000;
+	margin-top: 2px;
+}
+
+.page-profile .profile-edit-input {
+	display: block;
+	width: min(100%, 300px);
+	margin: 0 auto 8px;
+	padding: 8px;
+	border: 1px solid #b4deda;
+	box-sizing: border-box;
+}
+
+.page-profile .profile-edit-input[hidden] {
+	display: none;
 }
 
 .page-profile .review-item {
-  background: #FFF;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+	width: min(100%, 455px);
+	min-height: 164px;
+	padding: 13px 12px;
+	margin: 0 auto 16px;
+	box-sizing: border-box;
+	background: #d9f5f2;
+	font-size: 15px;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.page-profile .review-item p {
+	margin: 16px 0 10px;
 }
 
 .page-profile .profile-edit-button {
-  width: 100%;
+	width: min(100%, 300px);
   background: #0dc1a9;
   color: #FFF;
   border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: 16px;
+	border-radius: 9px;
+	padding: 8px;
+	font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.page-profile .signup-title {
+	margin: 30px 0 20px;
+	font-size: 19px;
+	line-height: 1.25;
+}
+
+.page-profile .review-status {
+	font-weight: 600;
+}
+
+.page-profile .review-actions {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-top: 11px;
+}
+
+.page-profile .review-actions button {
+	width: 88px;
+	margin: 11px auto 0;
+	padding: 8px 0;
+	border: 0;
+	border-radius: 9px;
+	background: #0dc1a9;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+	.page-profile {
+		padding: 28px 24px 40px;
+	}
 }
 
 
@@ -506,40 +787,100 @@ body {
    Admin Dashboard
 ------------------------- */
 .page-admin {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 40px 24px;
+	box-sizing: border-box;
+	background: #fff;
+	font-family: Poppins, Arial, sans-serif;
+}
+
+.page-admin .content-container {
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+	max-width: none;
+	margin: 0 auto;
+}
+
+.page-admin .page-header {
+	margin-bottom: 25px;
+}
+
+.page-admin .title {
+	width: auto;
+	height: auto;
+	margin: 0;
+	font-size: 20px;
+	line-height: 1.25;
+	font-weight: 700;
+}
+
+.page-admin .page-section {
+	width: 100%;
+}
+
+.page-admin .signup-title {
+	margin: 0 0 26px;
+	font-size: 16px;
+	line-height: 1.3;
+	font-weight: 700;
+	letter-spacing: 0;
 }
 
 .page-admin .admin-review-card {
-  background: #FFF;
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+	background: #d9f5f2;
+	padding: 12px 8px;
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0 0 17px;
+	box-sizing: border-box;
+	min-height: 157px;
+	color: #000;
+	font-size: 14px;
+	line-height: 1.15;
+}
+
+.page-admin .admin-review-card p {
+	margin: 0;
+}
+
+.page-admin .admin-review-card p:nth-child(3) {
+	margin-top: 1px;
+}
+
+.page-admin .admin-review-card p:nth-child(4) {
+	margin-top: 16px;
+}
+
+.page-admin .admin-empty-state {
+	color: #777;
+	font-size: 13px;
+	text-align: center;
 }
 
 .page-admin .admin-buttons {
   display: flex;
-  gap: 10px;
+	gap: 18px;
+	margin: 6px 11px 0;
 }
 
-.page-admin .admin-accept {
+.page-admin .admin-accept,
+.page-admin .admin-reject {
   background: #0dc1a9;
   color: #FFF;
-  border-radius: 12px;
-  padding: 12px;
+	border-radius: 8px;
+	padding: 7px 18px;
   border: none;
   cursor: pointer;
+	flex: 1;
+	font: 600 12px Poppins, Arial, sans-serif;
 }
 
-.page-admin .admin-reject {
-  background: #E53935;
-  color: #FFF;
-  border-radius: 12px;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
+.page-admin .admin-accept:hover,
+.page-admin .admin-reject:hover {
+	background: #0ba896;
 }
 
 
@@ -548,40 +889,130 @@ body {
 ------------------------- */
 .page-manage {
   width: 100%;
-  max-width: 600px;
+	max-width: 900px;
   margin: 0 auto;
+	padding: 40px 24px;
+	box-sizing: border-box;
 }
 
-.page-manage img {
-  width: 100%;
-  border-radius: 16px;
-  margin-bottom: 20px;
+.page-manage .content-container {
+	width: min(100%, 700px);
+	margin: 0 auto;
+	gap: 0;
+}
+
+.page-manage .title {
+	text-align: center;
+	font-size: 28px;
+	margin: 0 0 24px;
+}
+
+.page-manage .manage-heading {
+	text-align: center;
+	font-size: 18px;
+	margin: 0 0 14px;
+}
+
+.page-manage .manage-add-button {
+	display: block;
+	margin: 0 auto 26px;
+	padding: 7px 15px;
+	border: 0;
+	border-radius: 9px;
+	background: #0dc1a9;
+	color: #fff;
+	font: 500 12px Poppins, Arial, sans-serif;
+	cursor: pointer;
+}
+
+.page-manage .manage-form {
+	margin-bottom: 24px;
+}
+
+.page-manage .manage-form[hidden],
+.page-manage .delete-confirmation[hidden] {
+	display: none;
 }
 
 .page-manage .manage-item {
-  background: #FFF;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+	width: min(100%, 455px);
+	min-height: 161px;
+	margin: 0 auto 16px;
+	padding: 12px 10px;
+	box-sizing: border-box;
+	background: #d9f5f2;
+	font-size: 16px;
+	line-height: 1.15;
+	position: relative;
+}
+
+.page-manage .manage-item p {
+	margin: 2px 0 12px;
+}
+
+.page-manage .manage-item img {
+	display: block;
+	width: 88px;
+	height: 39px;
+	object-fit: cover;
+	margin: 0 0 16px 10px;
 }
 
 .page-manage .manage-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+	gap: 22px;
+	margin-left: 10px;
+}
+
+.page-manage .manage-actions button,
+.page-manage .manage-button {
+  background: #0dc1a9;
+  color: #FFF;
+	border-radius: 9px;
+	padding: 8px 30px;
+  border: none;
+	font: 600 12px Poppins, Arial, sans-serif;
+  cursor: pointer;
 }
 
 .page-manage .manage-button {
-  width: 100%;
-  background: #0dc1a9;
-  color: #FFF;
-  border-radius: 12px;
-  padding: 14px;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+	width: 100%;
+}
+
+.page-manage .delete-confirmation {
+	width: min(100%, 280px);
+	margin: 110px 0 0 auto;
+	padding: 12px 15px;
+	box-sizing: border-box;
+	background: #d9f5f2;
+	font-size: 13px;
+}
+
+.page-manage .delete-confirmation p {
+	line-height: 1.35;
+	margin: 22px 0 18px;
+}
+
+.page-manage .confirmation-actions {
+	display: flex;
+	gap: 18px;
+}
+
+.page-manage .confirmation-actions button {
+	flex: 1;
+	padding: 6px 10px;
+	border: 0;
+	border-radius: 9px;
+	background: #0dc1a9;
+	color: #fff;
+	font: 600 12px Poppins, Arial, sans-serif;
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+	.page-manage {
+		padding: 64px 24px 40px;
+	}
 }
 
 

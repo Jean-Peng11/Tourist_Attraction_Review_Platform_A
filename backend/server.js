@@ -1,6 +1,6 @@
 
 // ----------------------
-require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 // 1. Import modules
 // ----------------------
 const express = require("express");
